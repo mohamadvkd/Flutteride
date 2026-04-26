@@ -16,6 +16,9 @@ jobs:
         with:
           flutter-version: '3.16.0'
 
+      - name: Create Flutter project
+        run: flutter create --project-name fff .
+
       - name: Get dependencies
         run: flutter pub get
 
