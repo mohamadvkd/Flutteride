@@ -1,4 +1,4 @@
-import 'packagefkckcc:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,13 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hnn',
+      title: 'Oooo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-      ),ىم م رزبزبمىخرمب
+      ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Hnn'),
+          title: Text('Oooo'),
         ),
         body: Center(
           child: Text('Hello World'),
