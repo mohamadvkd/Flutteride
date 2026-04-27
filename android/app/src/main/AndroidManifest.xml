@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ff.cod">
+    package="com.gg.gjckgri2">
 
     <application
-        android:label="Mo"
+        android:label="Kk"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

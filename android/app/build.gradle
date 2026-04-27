@@ -17,10 +17,10 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     compileSdkVersion 31
-    namespace "com.ff.cod"
+    namespace "com.gg.gjckgri2"
 
     defaultConfig {
-        applicationId "com.ff.cod"
+        applicationId "com.gg.gjckgri2"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1

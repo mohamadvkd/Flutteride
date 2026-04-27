@@ -5,16 +5,22 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mo',
+      title: 'Kk',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Kk'),
+        ),
+        body: Center(
+          child: Text('Hello World'),
+        ),
       ),
     );
   }
