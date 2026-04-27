@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Hnn',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-      ),
+      ),ىم م رزبزبمىخرمب
       home: Scaffold(
         appBar: AppBar(
           title: Text('Hnn'),
