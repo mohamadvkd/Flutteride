@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gnf.fjxjc">
+    package="com.bj.hgcvn">
 
     <application
-        android:label="Mfj"
+        android:label="Hnn"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
