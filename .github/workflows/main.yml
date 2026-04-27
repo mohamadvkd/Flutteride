@@ -16,9 +16,6 @@ jobs:
         with:
           flutter-version: '3.16.0'
 
-      - name: Create Flutter project
-        run: flutter create --project-name fff .
-
       - name: Get dependencies
         run: flutter pub get
 
@@ -30,3 +27,12 @@ jobs:
         with:
           name: app-release
           path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Create Release and Upload APK
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: Build ${{ github.run_number }}
+          files: build/app/outputs/flutter-apk/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
