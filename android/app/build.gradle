@@ -16,13 +16,13 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 33
-    namespace "com.example.fff"
+    compileSdkVersion 31
+    namespace "com.ff.cod"
 
     defaultConfig {
-        applicationId "com.example.fff"
+        applicationId "com.ff.cod"
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
     }
