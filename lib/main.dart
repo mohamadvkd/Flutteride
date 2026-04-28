@@ -3,24 +3,22 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 void main() {
-  runZonedGuarded(() {
+  print('===== main() بدأ =====');
+  try {
     runApp(MyApp());
-  }, (error, stackTrace) {
-    final log = 'ERROR: ' + error.toString() + '\n\n'
-      'STACKTRACE: ' + stackTrace.toString() + '\n\n'
-      'TIME: ' + DateTime.now().toString() + '\n';
+    print('===== runApp() نجح =====');
+  } catch (e) {
+    print('===== خطأ في runApp =====');
+    print(e.toString());
     try {
-      final dir = Directory('/data/data/Mx.oem.dow/files');
+      final dir = Directory('/data/data/Fjfj.ckck.fkckf/files');
       if (!dir.existsSync()) dir.createSync(recursive: true);
-      File(dir.path + '/flutter_error_log.txt').writeAsStringSync(log);
-    } catch (_) {
-      try {
-        final dir2 = Directory('/storage/emulated/0/Documents');
-        if (!dir2.existsSync()) dir2.createSync(recursive: true);
-        File(dir2.path + '/flutter_error_log.txt').writeAsStringSync(log);
-      } catch (_) {}
-    }
-  });
+      File(dir.path + '/flutter_error_log.txt').writeAsStringSync(
+        'ERROR in runApp: ' + e.toString() + '\n'
+        'TIME: ' + DateTime.now().toString() + '\n'
+      );
+    } catch (_) {}
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -28,14 +26,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('===== MyApp.build() =====');
     return MaterialApp(
-      title: 'Ma',
+      title: 'Fkfkfkf',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Ma'),
+          title: Text('Fkfkfkf'),
         ),
         body: Center(
           child: Text('Hello World'),
