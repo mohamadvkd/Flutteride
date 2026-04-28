@@ -6,15 +6,20 @@ void main() {
   runZonedGuarded(() {
     runApp(MyApp());
   }, (error, stackTrace) {
+    final log = 'ERROR: ' + error.toString() + '\n\n'
+      'STACKTRACE: ' + stackTrace.toString() + '\n\n'
+      'TIME: ' + DateTime.now().toString() + '\n';
     try {
-      final dir = Directory('/storage/emulated/0/Download');
+      final dir = Directory('/data/data/Mx.oem.dow/files');
       if (!dir.existsSync()) dir.createSync(recursive: true);
-      final file = File(dir.path + '/flutter_error_log.txt');
-      final log = 'ERROR: ' + error.toString() + '\n\n'
-        'STACKTRACE: ' + stackTrace.toString() + '\n\n'
-        'TIME: ' + DateTime.now().toString() + '\n';
-      file.writeAsStringSync(log);
-    } catch (_) {}
+      File(dir.path + '/flutter_error_log.txt').writeAsStringSync(log);
+    } catch (_) {
+      try {
+        final dir2 = Directory('/storage/emulated/0/Documents');
+        if (!dir2.existsSync()) dir2.createSync(recursive: true);
+        File(dir2.path + '/flutter_error_log.txt').writeAsStringSync(log);
+      } catch (_) {}
+    }
   });
 }
 
@@ -24,13 +29,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Moh',
+      title: 'Ma',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Moh'),
+          title: Text('Ma'),
         ),
         body: Center(
           child: Text('Hello World'),

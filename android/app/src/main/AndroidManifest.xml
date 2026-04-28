@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="Com.moh.mmm">
+    package="Mx.oem.dow">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:requestLegacyExternalStorage="true"
-        android:label="Moh">
+        android:label="Ma">
         <activity
             android:name=".MainActivity"
             android:exported="true"
