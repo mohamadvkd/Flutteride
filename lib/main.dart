@@ -1,7 +1,15 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runZonedGuarded(() {
+    debugPrint('========== تطبيق FlutterIDE يبدأ ==========');
+    runApp(MyApp());
+  }, (error, stackTrace) {
+    debugPrint('========== خطأ غير متوقع ==========');
+    debugPrint('Error: ' + error.toString());
+    debugPrint('StackTrace: ' + stackTrace.toString());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -9,14 +17,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('تم بناء MyApp');
     return MaterialApp(
-      title: 'Icj',
+      title: 'Lllll',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Icj'),
+          title: Text('Lllll'),
         ),
         body: Center(
           child: Text('Hello World'),
