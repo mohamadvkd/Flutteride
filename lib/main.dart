@@ -1,39 +1,52 @@
-import 'dart:async';
-import 'dart:io';
 import 'package:flutter/material.dart';
 
 void main() {
-  runZonedGuarded(() {
-    runApp(MyApp());
-  }, (error, stackTrace) {
-    try {
-      final dir = Directory('/storage/emulated/0/Download');
-      if (!dir.existsSync()) dir.createSync(recursive: true);
-      final file = File(dir.path + '/flutter_error_log.txt');
-      final log = 'ERROR: ' + error.toString() + '\n\n'
-        'STACKTRACE: ' + stackTrace.toString() + '\n\n'
-        'TIME: ' + DateTime.now().toString() + '\n';
-      file.writeAsStringSync(log);
-    } catch (_) {}
-  });
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Moh',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Moh'),
+          title: Text('My Counter App'),
         ),
         body: Center(
-          child: Text('Hello World'),
+          child: GestureDetector(
+            onTap: _incrementCounter,
+            child: Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Text(
+                  '$_counter',
+                  style: TextStyle(
+                    fontSize: 48,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );
