@@ -10,59 +10,67 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'محمد',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        useMaterial3: true,
+      title: 'Cncn',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: const Color(0xFF1A1A2E),
       ),
-      home: const MyHomePage(),
+      home: const HelloPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class HelloPage extends StatefulWidget {
+  const HelloPage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HelloPage> createState() => _HelloPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _HelloPageState extends State<HelloPage>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 3),
+      vsync: this,
+    )..repeat(reverse: true);
+    _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('محمد'),
-      ),
       body: Center(
-        child: GestureDetector(
-          onTap: _incrementCounter,
-          child: Container(
-            width: 200,
-            height: 200,
-            decoration: const BoxDecoration(
-              color: Colors.blue,
-              shape: BoxShape.circle,
-            ),
-            child: Center(
+        child: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, child) {
+            return Opacity(
+              opacity: 0.6 + (_animation.value * 0.4),
               child: Text(
-                '$_counter',
-                style: const TextStyle(
-                  fontSize: 48,
-                  color: Colors.white,
+                'Hello World',
+                style: TextStyle(
+                  fontSize: 36,
                   fontWeight: FontWeight.bold,
+                  color: Color.lerp(
+                    Colors.cyanAccent,
+                    Colors.purpleAccent,
+                    _animation.value,
+                  ),
                 ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ),
     );
