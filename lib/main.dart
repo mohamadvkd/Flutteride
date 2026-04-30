@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Qq',vn.,,ccb
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBannerب: false,
       theme: ThemeData.dark().copyWith(
         scaffo{{{{{{{gg()}}}}}}}ldBackgroundColor: const Color(0xFF1A1A2E),
       ),
