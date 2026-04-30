@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Qq',vn.,,ccb
-      debugShowCheckedModeBannerب: false,
+      title: 'م',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffo{{{{{{{gg()}}}}}}}ldBackgroundColor: const Color(0xFF1A1A2E),
+        scaffoldBackgroundColor: const Color(0xFF1A1A2E),
       ),
       home: const HelloPage(),
     );
